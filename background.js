@@ -1,6 +1,4 @@
-
-
- /// This function listens for a click on your extension's icon.
+// This function listens for a click on your extension's icon.
 chrome.action.onClicked.addListener((tab) => {
     console.log("icon Clicked");
     // Send a message to the content script in the active tab
@@ -30,11 +28,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === "sendNativeMessage") {
         console.log("background on message after request action");
 
-        chrome.runtime.sendNativeMessage('com.duntz_corp.extract_text', {text: request.data.text},
+        /*chrome.runtime.sendNativeMessage('com.duntz_corp.extract_text', {text: request.data.text},
             function(response) {
-                console.log("Received response: ", request.data.text);
+                //console.log("Received response: ", request.data.text); 
+                console.log("response received from pyton: ", response);
                 // Optional: Send a response back to the content script
-                sendResponse({response: "Message sent to Python script"});
+                //sendResponse({response: "Message sent to Python script"});
+            });*/
+
+            chrome.runtime.sendNativeMessage('com.duntz_corp.extract_text', {text: "Test message"}, function(response) {
+                if (chrome.runtime.lastError) {
+                    console.error("Error sending message:", chrome.runtime.lastError.message);
+                    return;
+                }
+                console.log("Received response from Python:", response);
             });
         // Return true to indicate that you will send a response asynchronously
         return true;

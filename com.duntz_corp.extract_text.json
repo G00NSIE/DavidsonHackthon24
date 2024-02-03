@@ -1,0 +1,10 @@
+{
+    "name": "com.duntz_corp.extract_text",
+    "description": "My Chrome extension application",
+    "path": "/Users/austinprofenius/cloudFlare/cloudFlare.py",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://amfcikndopnfggnoanilhdblkdfedbih/"
+    ]
+  }
+                      

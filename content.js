@@ -22,7 +22,13 @@
     }
   });
 
+// In content.js or other scripts intended to receive messages
+/*chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
+    // Handle message
+    console.log(message);
+    return true; // Keep the message channel open for async response
+});*/
 
   /*function extractTextAsync() {
     return new Promise((resolve, reject) => {
