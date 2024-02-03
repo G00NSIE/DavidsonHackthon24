@@ -23,7 +23,6 @@
   });
 
 
- 
 
   /*function extractTextAsync() {
     return new Promise((resolve, reject) => {

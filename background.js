@@ -26,10 +26,13 @@ chrome.action.onClicked.addListener((tab) => {
 
   // background.js
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log("background on message BEFORE request action");
     if (request.action === "sendNativeMessage") {
-        chrome.runtime.sendNativeMessage('com.your_company.your_application', request.data,
+        console.log("background on message after request action");
+
+        chrome.runtime.sendNativeMessage('com.duntz_corp.extract_text', {text: request.data.text},
             function(response) {
-                console.log("Received response: ", response);
+                console.log("Received response: ", request.data.text);
                 // Optional: Send a response back to the content script
                 sendResponse({response: "Message sent to Python script"});
             });

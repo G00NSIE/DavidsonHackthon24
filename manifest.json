@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Extract Text",
+    "name": "extract_text",
     "version": "1.0",
     "permissions": [
       "activeTab",
